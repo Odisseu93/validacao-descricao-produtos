@@ -1,64 +1,11 @@
 const form = document.querySelector('.form');
 const feedbackDescricao = document.querySelector('.fedback-descricao')
 
-const palavrasProibidas = [
-' grátis',
-'gratuito',
-'gratuita',
-'envio imediato',
-'últimas unidades',
-'pouco estoque',
-'brinde',
-'pronta entrega',
-'entre em contato',
-'sac',
-'liquidação',
-'pré venda',
-'usado',
-'usada',
-'usados',
-'usadas',
-'seminovo',
-'frete grátis',
-'aproveite',
-'emagrecedores',
-'compatível',
-'compatíveis',
-'promoção',
-'desconto',
-'pergunte antes de comprar',
-'envio em até',
-'personalizado',
-'genérico',
-'inseticida',
-'durável',
-'velcro',
-'reembalado',
-'alia',
-'veneno',
-'criado mudo',
-'lente incolor',
-'paralelo',
-'similar',
-'óculos de grau',
-'auge',
-'loop',
-'source',
-'tilt',
-'vivo',
-'lente incolor',
-'remodelado',
-'drogas',
-'droga',
-'crossfit'
-
-]
-
 form.descricao.addEventListener('input', (e)=>{
 
     if (form.descricao.value != "") {
         let erros = [];
-        palavrasProibidas.map(palavra => {
+        termos_proibida_array.map(palavra => {
             if (e.target.value.match(palavra)) erros.push(palavra);
         });
 
