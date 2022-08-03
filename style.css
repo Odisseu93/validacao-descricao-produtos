@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
 .form {
     display: flex;
     flex-flow: column wrap;
@@ -13,6 +18,7 @@
 }
 
 .form__title {
+    text-align: center;
     padding: 10px;
     font-size: 2em;
     color: blue;
@@ -36,17 +42,33 @@
 
 }
 
+@media (max-width: 768px) {
+    .btn-limpar {
+        height: 60px;
+        width: 200px;
+    }
+}
+
 .btn-limpar:active {
-transform: scale(1.15);
-background-color : greenyellow;
- }
+    transform: scale(1.15);
+    background-color: greenyellow;
+}
 
 .fedback-descricao {
     display: none;
+    resize: none;
 }
 
 .descricao {
     resize: none;
+    width: 50vw;
+}
+
+@media (max-width: 768px) {
+    .descricao {
+        width: 80vw;
+    }
+
 }
 
 .descricao::placeholder {
@@ -55,24 +77,29 @@ background-color : greenyellow;
     color: rgba(0, 0, 255, .4);
 }
 
-.show-display {
-    display: block;
-} 
-
-.erro { 
+.erro {
+    box-sizing: border-box;
     margin: 0 auto;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    width: 80%;
-    height: 80px;
+    max-width: 30vw;
+    max-height: 30vh;
     text-align: center;
     font-size: 1.5em;
     color: red;
     background: rgba(255, 99, 71, .4);
-    font-weight: bold;   
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .erro {
+        max-height: 50vw;
+        max-width: 80vw;
+    }
+
 }
 
 .allrigth {
@@ -82,7 +109,7 @@ background-color : greenyellow;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    width: 80%;
+    width: 50%;
     height: 80px;
     text-align: center;
     font-size: 1.5em;
@@ -92,10 +119,17 @@ background-color : greenyellow;
 }
 
 footer {
-    position: fixed;
+    position: absolute;
+    text-align: center;
     bottom: 0;
-    left: 43vw;
+    left: calc(100%/2.5);
     padding: 30px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        left: calc(100%/4.3);
+    }
 }
 
 footer a {
