@@ -1,19 +1,27 @@
 const form = document.querySelector('.form');
-const feedbackDescricao = document.querySelector('.fedback-descricao')
+const feedbackDescricao = document.querySelector('.fedback-descricao');
 
 form.descricao.addEventListener('input', (e) => {
+    const textoInput = e.target.value;
 
     if (form.descricao.value != "") {
         let erros = [];
-        termos_proibida_array.map(palavra => {
-            if (e.target.value.match(palavra)) erros.push(palavra);
+
+        //testa a descrição
+        termos_proibida_array.some(termo => {
+            const reg = new RegExp(termo, 'i');
+            if (reg.test(textoInput)) {
+                erros.push(termo)
+                return true // stop `some()`
+            };
         });
 
+        //caso não tenha erro
         if (erros.length === 0) {
             feedbackDescricao.innerText = 'Tudo Certo!';
             feedbackDescricao.classList.add('allrigth');
         }
-        else {
+        else {  // caso tenha erro
             feedbackDescricao.classList.remove('allrigth');
             feedbackDescricao.classList.add('erro');
 
