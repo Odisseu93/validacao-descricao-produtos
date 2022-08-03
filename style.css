@@ -66,6 +66,7 @@ body {
 
 @media (max-width: 768px) {
     .descricao {
+        max-height: 10wh;
         width: 80vw;
     }
 
@@ -80,15 +81,17 @@ body {
 .erro {
     box-sizing: border-box;
     margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 10px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     max-width: 30vw;
-    max-height: 30vh;
+    max-height: 10vh;
     text-align: center;
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     color: red;
     background: rgba(255, 99, 71, .4);
     font-weight: bold;
@@ -96,7 +99,7 @@ body {
 
 @media (max-width: 768px) {
     .erro {
-        max-height: 50vw;
+        max-height: 30vw;
         max-width: 80vw;
     }
 
@@ -128,9 +131,9 @@ footer {
 
 @media (max-width: 768px) {
     footer {
-        left: calc(100%/4.3);
+        display: none;
     }
-}
+}    
 
 footer a {
     font-size: 1.3em;
