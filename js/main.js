@@ -1,7 +1,7 @@
 const form = document.querySelector('.form');
 const feedbackDescricao = document.querySelector('.fedback-descricao')
 
-form.descricao.addEventListener('input', (e)=>{
+form.descricao.addEventListener('input', (e) => {
 
     if (form.descricao.value != "") {
         let erros = [];
@@ -18,21 +18,25 @@ form.descricao.addEventListener('input', (e)=>{
             feedbackDescricao.classList.add('show-display');
             feedbackDescricao.classList.remove('allrigth');
             feedbackDescricao.classList.add('erro');
-            
+
             feedbackDescricao.innerText = `palavras proibidas: "${erros}"`;
-            
+
         }
     } else { //reset
-        feedbackDescricao.classList.remove('allrigth');
-        feedbackDescricao.classList.remove('erro');   
-        feedbackDescricao.innerText = '';
+        limpar();
     }
 })
 
 
-form.btnLimpar.addEventListener('click', ()=>{
-    feedbackDescricao.classList.remove('allrigth');
-        feedbackDescricao.classList.remove('erro');   
-        feedbackDescricao.innerText = '';
-        form.descricao.value = '';
+form.btnLimpar.addEventListener('click', () => {
+    limpar();
+    form.descricao.value = '';
 });
+
+const limpar = () => {
+    feedbackDescricao.classList.remove('allrigth');
+    feedbackDescricao.classList.remove('show-display');
+    feedbackDescricao.classList.remove('erro');
+    feedbackDescricao.classList.remove('show-display');
+    feedbackDescricao.innerText = '';
+} 
