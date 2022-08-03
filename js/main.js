@@ -12,10 +12,8 @@ form.descricao.addEventListener('input', (e) => {
         if (erros.length === 0) {
             feedbackDescricao.innerText = 'Tudo Certo!';
             feedbackDescricao.classList.add('allrigth');
-            feedbackDescricao.classList.add('show-display');
         }
         else {
-            feedbackDescricao.classList.add('show-display');
             feedbackDescricao.classList.remove('allrigth');
             feedbackDescricao.classList.add('erro');
 
@@ -35,8 +33,6 @@ form.btnLimpar.addEventListener('click', () => {
 
 const limpar = () => {
     feedbackDescricao.classList.remove('allrigth');
-    feedbackDescricao.classList.remove('show-display');
     feedbackDescricao.classList.remove('erro');
-    feedbackDescricao.classList.remove('show-display');
     feedbackDescricao.innerText = '';
 } 
