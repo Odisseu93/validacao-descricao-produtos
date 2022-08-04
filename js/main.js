@@ -12,7 +12,6 @@ form.descricao.addEventListener('input', (e) => {
             const reg = new RegExp(termo, 'i');
             if (reg.test(textoInput)) {
                 erros.push(termo)
-                return true // stop `some()`
             };
         });
 
