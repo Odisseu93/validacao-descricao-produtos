@@ -1,19 +1,33 @@
-const form = document.querySelector('.form');
-const feedbackDescricao = document.querySelector('.fedback-descricao');
+const container = document.querySelector('#container');
+const descricao = document.querySelector('#descricao');
+const viewErros = document.querySelector("#viewErros");
+const btnVer = document.querySelector('#btnVer');
+const btnLimpar = document.querySelector('#btnLimpar');
+const feedbackDescricao = document.querySelector('#feedBDescricao');
 
-form.descricao.addEventListener('input', (e) => {
-    const textoInput = e.target.value;
 
-    if (form.descricao.value != "") {
+descricao.classList.add('estah-visivel')
+
+container.addEventListener('input', (e) => {
+    let descricaoInnerHTML = descricao.innerHTML;
+    const textoInput = e.target.innerText;
+
+    if (descricao.innerText != "") {
         let erros = [];
 
         //testa a descrição
         termos_proibida_array.some(termo => {
             const reg = new RegExp(termo, 'i');
             if (reg.test(textoInput)) {
-                erros.push(termo)
+                erros.push(termo);
+                console.log(descricaoInnerHTML)
+                descricaoInnerHTML = descricaoInnerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`);
+                console.log(descricaoInnerHTML)
+                update(descricaoInnerHTML);
+                
             };
         });
+        
 
         //caso não tenha erro
         if (erros.length === 0) {
@@ -33,9 +47,15 @@ form.descricao.addEventListener('input', (e) => {
 })
 
 
-form.btnLimpar.addEventListener('click', () => {
+btnLimpar.addEventListener('click', () => {
     limpar();
-    form.descricao.value = '';
+    descricao.innerText = '';
+});
+
+btnVer.addEventListener('click', () => {
+    descricao.classList.toggle('estah-visivel');
+    viewErros.classList.toggle('estah-visivel');
+
 });
 
 const limpar = () => {
@@ -43,3 +63,9 @@ const limpar = () => {
     feedbackDescricao.classList.remove('erro');
     feedbackDescricao.innerText = '';
 } 
+
+function update(descricaoInnerHTML){
+    viewErros.innerHTML = descricaoInnerHTML;
+}
+
+

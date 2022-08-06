@@ -9,47 +9,65 @@ body {
     height: 100vh;
 }
 
-.form {
+.container {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
 }
 
-.form__title {
+.container__title {
     text-align: center;
     padding: 10px;
     font-size: 2em;
     color: blue;
 }
 
-.btn-limpar {
+.container_btn {
     border-radius: 20px;
     letter-spacing: 0.1em;
     font-weight: bold;
-    margin-top: 10px;
-    background: rgba(51, 170, 51, .4);
-    background: azure;
-    color: blue;
-    height: 30px;
-    width: 100px;
-}
-
-.btn-limpar:hover {
-    background: rgba(51, 170, 51, .4);
-    color: blue;
-
+    padding: 10px;
+    margin-top: 5px;
+    min-height: 30px;
+    min-width: 100px;
 }
 
 @media (max-width: 768px) {
-    .btn-limpar {
+    .container_btn {
         height: 60px;
-        width: 200px;
+        width: 150px;
     }
 }
 
-.btn-limpar:active {
+.container_btn--container_btn--mudar-de-tela{
+    background: rgba(51, 170, 51, .4);
+    background: azure;
+    color: red;
+}
+.container_btn--mudar-de-tela:hover {
+    background: yellowgreen;
+    color: blue;
+}
+
+.container_btn--mudar-de-tela:active {
+    transform: scale(1.15);
+    background-color: yellow;
+}
+
+.container_btn--limpar {
+    background: rgba(51, 170, 51, .4);
+    background: azure;
+    color: blue;
+}
+
+.container_btn--limpar:hover {
+    background: rgba(51, 170, 51, .4);
+    color: blue;
+}
+
+.container_btn--limpar:active {
     transform: scale(1.15);
     background-color: greenyellow;
 }
@@ -59,14 +77,23 @@ body {
     resize: none;
 }
 
-.descricao {
-    resize: none;
-    width: 50vw;
+div {
+    display: none
+}
+
+.estah-visivel {
+    display: block;
+    overflow:auto; 
+
+    padding: 10px;
+    width: 40vw;
+    height: 500px;
+    border: 1px solid #000;
 }
 
 @media (max-width: 768px) {
-    .descricao {
-        max-height: 10wh;
+    .estah-visivel {
+        max-height: 50vh;
         width: 80vw;
     }
 
@@ -80,6 +107,7 @@ body {
 
 .erro {
     box-sizing: border-box;
+    overflow:auto; 
     margin: 0 auto;
     margin-bottom: 5px;
     padding: 10px;
@@ -88,10 +116,9 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    max-width: 30vw;
+    max-width: 40vw;
     max-height: 10vh;
     text-align: center;
-    /* font-size: 1.5em; */
     color: red;
     background: rgba(255, 99, 71, .4);
     font-weight: bold;
@@ -105,6 +132,13 @@ body {
 
 }
 
+.palavras-proibidas{
+    font-weight: bold;
+    color: red;
+    border-radius: 5px;
+    background: rgba(255, 99, 71, .4);
+}
+
 .allrigth {
     margin: 0 auto;
     display: flex;
@@ -112,8 +146,8 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    width: 50%;
-    height: 80px;
+    width: 30%;
+    height: 50px;
     text-align: center;
     font-size: 1.5em;
     color: green;
@@ -121,26 +155,9 @@ body {
     font-weight: bold;
 }
 
-/* footer {
-    position: absolute;
-    text-align: center;
-    bottom: 0;
-    left: calc(100%/2.5);
-    padding: 30px;
-}
-
 @media (max-width: 768px) {
-    footer {
-        display: none;
+    .allrigth{
+        width: 80%;
+        padding-bottom: 10px;
     }
-}    
-
-footer a {
-    font-size: 1.3em;
-    text-decoration: none;
-    font-weight: bold;
 }
-
-footer a:hover {
-    font-size: 1.5em;
-} */

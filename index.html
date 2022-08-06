@@ -12,21 +12,23 @@
 
 <body>
     <main class="main">
-        <form action="" class="form">
-            <h1 class="form__title">Validação de Descrição</h1>
+        <div action="" class="container" id="container">
+            <h1 class="container__title">Validação de Descrição</h1>
             <style>
             </style>
-            <textarea name="descricao" cols="50" rows="20" class="descricao" autofocus
-                placeholder="Insira a Descrição Aqui!"></textarea>
-            <button type="button" name="btnLimpar" class="btn-limpar">Limpar</button>
-        </form>
-        <textarea class="fedback-descricao" cols="50" rows="20" readonly>
+            <div class="Container__div--descricao " id="descricao" contenteditable="true">
+
+            </div>
+            <div class="container__div--view-erros" id="viewErros">
+
+            </div>
+            <button type="button" class="container_btn container_btn--limpar" id="btnLimpar" >Limpar</button>
+            <button type="button" class="container_btn container_btn--mudar-de-tela" id="btnVer">mudar de tela</button>
+        </div>
+        <div class="fedback-descricao" id="feedBDescricao">
 
         </textarea>
     </main>
-    <!-- <footer> Coded by 
-        <a href="https://github.com/odisseu93" target="_blank">Ulisses Silvério</a> .
-    </footer> -->
     <script src="./js/main.js"></script>
     <script src="./js/termos-proibidos.js"></script>
 </body>
