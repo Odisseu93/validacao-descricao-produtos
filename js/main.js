@@ -1,6 +1,5 @@
 const container = document.querySelector('#container');
-const descricao = document.querySelector('#descricao');
-const txtAreaDescicao = document.querySelector('#txtAreaDescicao');
+const descricao = document.querySelector('#txtAreaDescicao');
 const viewErros = document.querySelector("#viewErros");
 const btnVer = document.querySelector('#btnVer');
 const btnLimpar = document.querySelector('#btnLimpar');
@@ -9,14 +8,13 @@ const url = "./js/termos-proibidos.json";
 
 
 
-txtAreaDescicao.classList.add('estah-visivel')
+descricao.classList.add('estah-visivel')
 
 
-container.addEventListener('input',(e) => enviarDados(e.target.value))
+container.addEventListener('input', (e) => sendInput(e.target.value))
 
 
-function enviarDados(input) {
-console.log(input)
+function sendInput(input) {
     // update(input)
     fetch(url) // requisição
         .then(response => {
@@ -24,7 +22,6 @@ console.log(input)
         })
         .then(dados => {
             const termosProibidos = dados.termo;
-            console.log(termosProibidos);
 
             const textoInput = input;
             feedbackDescricao.innerText = textoInput;
@@ -38,9 +35,7 @@ console.log(input)
                     const reg = new RegExp(termo, 'i');
                     if (reg.test(textoInput)) {
                         erros.push(termo);
-                        console.log(descricaoInnerHTML);
                         descricaoInnerHTML = descricaoInnerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`);
-                        console.log(descricaoInnerHTML)
                         update(descricaoInnerHTML);
 
                     };
@@ -73,11 +68,12 @@ console.log(input)
 btnLimpar.addEventListener('click', () => {
     limpar();
     feedbackDescricao.innerText = '';
-    txtAreaDescicao.value = '';
+    descricao.value = '';
+    viewErros.innerText = ""
 });
 
 btnVer.addEventListener('click', () => {
-    txtAreaDescicao.classList.toggle('estah-visivel');
+    descricao.classList.toggle('estah-visivel');
     viewErros.classList.toggle('estah-visivel');
 
 });
@@ -86,9 +82,11 @@ const limpar = () => {
     feedbackDescricao.classList.remove('allrigth');
     feedbackDescricao.classList.remove('erro');
     feedbackDescricao.innerText = '';
+    feedbackDescricao.innerText = '';
 }
 
 function update(descricaoInnerHTML) {
+    visualViewport.innerText = descricao.value
     viewErros.innerHTML = descricaoInnerHTML;
 }
 
