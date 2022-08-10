@@ -1,5 +1,6 @@
 const container = document.querySelector('#container');
 const descricao = document.querySelector('#descricao');
+const txtAreaDescicao = document.querySelector('#txtAreaDescicao');
 const viewErros = document.querySelector("#viewErros");
 const btnVer = document.querySelector('#btnVer');
 const btnLimpar = document.querySelector('#btnLimpar');
@@ -8,12 +9,15 @@ const url = "./js/termos-proibidos.json";
 
 
 
-descricao.classList.add('estah-visivel')
+txtAreaDescicao.classList.add('estah-visivel')
 
 
-container.addEventListener('input', (e) => {
+container.addEventListener('input',(e) => enviarDados(e.target.value))
 
 
+function enviarDados(input) {
+console.log(input)
+    // update(input)
     fetch(url) // requisição
         .then(response => {
             return response.json()
@@ -22,10 +26,11 @@ container.addEventListener('input', (e) => {
             const termosProibidos = dados.termo;
             console.log(termosProibidos);
 
-            let descricaoInnerHTML = descricao.innerHTML;
-            const textoInput = e.target.innerText;
+            const textoInput = input;
+            feedbackDescricao.innerText = textoInput;
+            let descricaoInnerHTML = feedbackDescricao.innerHTML;
 
-            if (descricao.innerText != "") {
+            if (feedbackDescricao.innerText != "") {
                 let erros = [];
 
                 //testa a descrição
@@ -62,16 +67,17 @@ container.addEventListener('input', (e) => {
             throw Error(e)
         })
 
-})
+}
 
 
 btnLimpar.addEventListener('click', () => {
     limpar();
-    descricao.innerText = '';
+    feedbackDescricao.innerText = '';
+    txtAreaDescicao.value = '';
 });
 
 btnVer.addEventListener('click', () => {
-    descricao.classList.toggle('estah-visivel');
+    txtAreaDescicao.classList.toggle('estah-visivel');
     viewErros.classList.toggle('estah-visivel');
 
 });

@@ -77,8 +77,12 @@ body {
     resize: none;
 }
 
-div {
+div, .Container__txtArea--descricao {
     display: none
+}
+
+.Container__txtArea--descricao{
+    resize: none;
 }
 
 .estah-visivel {
@@ -99,7 +103,7 @@ div {
 
 }
 
-.descricao::placeholder {
+.Container__txtArea--descricao::placeholder {
     padding: 30px;
     text-align: center;
     color: rgba(0, 0, 255, .4);
