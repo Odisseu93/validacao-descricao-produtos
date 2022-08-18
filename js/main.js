@@ -4,7 +4,7 @@ const viewErros = document.querySelector("#viewErros");
 const btnVer = document.querySelector('#btnVer');
 const btnLimpar = document.querySelector('#btnLimpar');
 const feedbackDescricao = document.querySelector('#feedBDescricao');
-const url = "./js/termos-proibidos.json";
+const url = "./termos-proibidos.json";
 
 
 
