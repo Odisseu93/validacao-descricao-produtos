@@ -10,12 +10,11 @@ const url = "./termos-proibidos.json";
 
 descricao.classList.add('estah-visivel')
 
-
+// input event para a principal função do código
 container.addEventListener('input', (e) => sendInput(e.target.value))
 
 
 function sendInput(input) {
-    // update(input)
     fetch(url) // requisição
         .then(response => {
             return response.json()
@@ -23,20 +22,21 @@ function sendInput(input) {
         .then(dados => {
             const termosProibidos = dados.termo;
 
-            const textoInput = input;
+            const textoInput = input; 
             feedbackDescricao.innerText = textoInput;
             let descricaoInnerHTML = feedbackDescricao.innerHTML;
 
+            // trigger para a função de checagem
             if (feedbackDescricao.innerText != "") {
                 let erros = [];
 
-                //testa a descrição
+                //testa se a descrição contém alguma palavra do arquivo json
                 termosProibidos.some(termo => {
                     const reg = new RegExp(termo, 'i');
                     if (reg.test(textoInput)) {
                         erros.push(termo);
-                        descricaoInnerHTML = descricaoInnerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`);
-                        update(descricaoInnerHTML);
+                        descricaoInnerHTML = descricaoInnerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`); 
+                        update(descricaoInnerHTML); /* transferindo o conteúdo da descrição para view de erros*/
 
                     };
                 });
@@ -58,7 +58,7 @@ function sendInput(input) {
             }
 
         })
-        .catch((e) => {
+        .catch((e) => { 
             throw Error(e)
         })
 
@@ -84,7 +84,7 @@ const limpar = () => {
     feedbackDescricao.innerText = '';
 }
 
-function update(descricaoInnerHTML) {
+function update(descricaoInnerHTML) { 
     viewErros.innerHTML = descricaoInnerHTML;
 }
 
