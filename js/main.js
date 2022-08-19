@@ -82,11 +82,9 @@ const limpar = () => {
     feedbackDescricao.classList.remove('allrigth');
     feedbackDescricao.classList.remove('erro');
     feedbackDescricao.innerText = '';
-    feedbackDescricao.innerText = '';
 }
 
 function update(descricaoInnerHTML) {
-    visualViewport.innerText = descricao.value
     viewErros.innerHTML = descricaoInnerHTML;
 }
 
