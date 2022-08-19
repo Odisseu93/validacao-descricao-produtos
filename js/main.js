@@ -36,7 +36,7 @@ function sendInput(input) {
                     if (reg.test(textoInput)) {
                         erros.push(termo);
                         descricaoInnerHTML = descricaoInnerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`); 
-                        update(descricaoInnerHTML); /* transferindo o conteúdo da descrição para view de erros*/
+                        updateViewErros(descricaoInnerHTML); /* transferindo o conteúdo da descrição para view de erros*/
 
                     };
                 });
@@ -84,7 +84,7 @@ const limpar = () => {
     feedbackDescricao.innerText = '';
 }
 
-function update(descricaoInnerHTML) { 
+function updateViewErros(descricaoInnerHTML) { 
     viewErros.innerHTML = descricaoInnerHTML;
 }
 
