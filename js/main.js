@@ -23,20 +23,20 @@ function sendInput(input) {
             const termosProibidos = dados.termo;
 
             const textoInput = input; 
-            feedbackDescricao.innerText = textoInput;
-            let descricaoInnerHTML = feedbackDescricao.innerHTML;
-
+            // feedbackDescricao.innerText = textoInput;
+            
+            viewErros.innerText = descricao.value; // enviar o texto do textarea para o para a div ouculta #viewErros
             // trigger para a função de checagem
-            if (feedbackDescricao.innerText != "") {
+            if (textoInput != "") {
                 let erros = [];
-
+                
                 //testa se a descrição contém alguma palavra do arquivo json
                 termosProibidos.some(termo => {
                     const reg = new RegExp(termo, 'i');
                     if (reg.test(textoInput)) {
                         erros.push(termo);
-                        descricaoInnerHTML = descricaoInnerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`); 
-                        updateViewErros(descricaoInnerHTML); /* transferindo o conteúdo da descrição para view de erros*/
+                        viewErros.innerHTML = viewErros.innerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`); 
+                        updateViewErros(viewErros.innerHTML); /* transferindo o conteúdo da descrição para view de erros*/
 
                     };
                 });
