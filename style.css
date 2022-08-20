@@ -126,10 +126,11 @@ div, .Container__txtArea--descricao {
     border-radius: 10px;
     max-width: 40vw;
     max-height: 10vh;
+    font-size: 1.5em;
     text-align: center;
-    color: red;
-    background: rgba(255, 99, 71, .4);
-    font-weight: bold;
+    color: #D00000;
+    background: #fcbf49;
+    /* font-weight: bold; */
 }
 
 @media (max-width: 768px) {
