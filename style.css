@@ -8,8 +8,6 @@ body {
     width: 100vw;
     height: 100vh;
     background: #CAF0F8;
-    font-family: 'Teko', sans-serif;
-    font-weight: 400;
 }
 
 .container {
@@ -87,12 +85,13 @@ div, .Container__txtArea--descricao {
 
 .Container__txtArea--descricao{
     resize: none;
+    border-radius: 10px;
 }
 
 .estah-visivel {
     display: block;
     overflow:auto; 
-
+    
     padding: 10px;
     width: 40vw;
     height: 500px;
@@ -104,13 +103,20 @@ div, .Container__txtArea--descricao {
         max-height: 50vh;
         width: 80vw;
     }
-
+    
 }
 
 .Container__txtArea--descricao::placeholder {
     padding: 30px;
     text-align: center;
     color: rgba(0, 0, 255, .4);
+}
+
+.container__div--view-erros {
+    border-radius: 10px;
+    background: white;
+    border-color: #D00000;
+    line-height: 26px;
 }
 
 .erro {
@@ -126,12 +132,10 @@ div, .Container__txtArea--descricao {
     border-radius: 10px;
     max-width: 40vw;
     height: 50px;
-    /* max-height: 10vh; */
     font-size: 1.5em;
     text-align: center;
     color: #D00000;
     background: #fcbf49;
-    /* font-weight: bold; */
 }
 
 @media (max-width: 768px) {
@@ -139,7 +143,7 @@ div, .Container__txtArea--descricao {
         max-height: 30vw;
         max-width: 80vw;
     }
-
+    
 }
 
 .palavras-proibidas{
