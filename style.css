@@ -37,6 +37,8 @@ body {
     font-size: 20px;
     padding: 10px;
     margin-top: 5px;
+    background: #90E0EF;
+    color: #023E8A;
     min-height: 30px;
     min-width: 100px;
 }
@@ -49,34 +51,29 @@ body {
 }
 
 .container_btn--container_btn--mudar-de-tela{
-    background: rgba(51, 170, 51, .4);
-    background: azure;
     color: red;
 }
 .container_btn--mudar-de-tela:hover {
-    background: yellowgreen;
-    color: blue;
+    background: #00B4D8;
+    color: #03045E;
 }
 
 .container_btn--mudar-de-tela:active {
     transform: scale(1.15);
-    background-color: yellow;
+    color: #90E0EF;
+    background: #023E8A;
 }
 
-.container_btn--limpar {
-    background: rgba(51, 170, 51, .4);
-    background: azure;
-    color: blue;
-}
 
 .container_btn--limpar:hover {
-    background: rgba(51, 170, 51, .4);
-    color: blue;
+    background: #00B4D8;
+    color: #03045E;
 }
 
 .container_btn--limpar:active {
     transform: scale(1.15);
-    background-color: greenyellow;
+    color: #90E0EF;
+    background: #023E8A;
 }
 
 .fedback-descricao {
