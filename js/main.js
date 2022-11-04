@@ -50,7 +50,7 @@ function sendInput(input) {
                     feedbackDescricao.classList.remove('allrigth');
                     feedbackDescricao.classList.add('erro');
 
-                    feedbackDescricao.innerText = `palavras proibidas: "${erros}"`;
+                    feedbackDescricao.innerText = `palavras proibidas: \n${erros.join(' \n')}`;
 
                 }
             } else { //reset
