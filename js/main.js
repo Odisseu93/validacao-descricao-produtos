@@ -37,7 +37,6 @@ const verificaInput = async () => {
       alertSuccess.style.display = "none";
       alertDanger.style.display = "block";
       alertDanger.textContent = [...termosProibidos];
-      console.log(termosProibidos);
     } else {
       alertDanger.style.display = "none";
       alertSuccess.style.display = "block";
@@ -46,7 +45,6 @@ const verificaInput = async () => {
       alertDanger.style.display = "none";
       alertSuccess.style.display = "none";
     }
-    arraysTermos;
   };
 };
 
