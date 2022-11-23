@@ -361,5 +361,7 @@ no seu terminal digite:
 
 <div align="center">
 
+## licença
+[MIT](LICENSE)
 
 
