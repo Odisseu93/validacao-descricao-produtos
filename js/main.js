@@ -1,92 +1,53 @@
-const container = document.querySelector('#container');
-const descricao = document.querySelector('#txtAreaDescicao');
-const viewErros = document.querySelector("#viewErros");
-const btnVer = document.querySelector('#btnVer');
-const btnLimpar = document.querySelector('#btnLimpar');
-const feedbackDescricao = document.querySelector('#feedBDescricao');
+const descricao = document.querySelector("[form]");
+const modalBody = document.querySelector("[modal-body]");
+const alertSuccess = document.querySelector("[alert-success]");
+const alertDanger = document.querySelector("[alert-danger]");
 const url = "./termos-proibidos.json";
 
+alertSuccess.style.display = "none";
+alertDanger.style.display = "none";
 
+const getTermos = async () => {
+  try {
+    const response = await fetch(url);
+    return response.json();
+  } catch (e) {
+    console.error(e);
+  }
+};
 
-descricao.classList.add('estah-visivel')
+const verificaInput = async () => {
+  const arraysTermos = await getTermos();
+  console.debug(arraysTermos);
 
-// input event para a principal função do código
-container.addEventListener('input', (e) => sendInput(e.target.value))
+  descricao.oninput = function (e) {
+    e.preventDefault();
+    modalBody.innerText = this.value;
 
+    const termosProibidos = arraysTermos.termo.filter((termo) => {
+      const reg = new RegExp(termo, "i");
+      if (reg.test(modalBody.innerHTML))
+        modalBody.innerHTML = modalBody.innerHTML.replace(
+          termo,
+          `<b style="color: tomato">${reg}</b>`
+        );
+      if (reg.test(this.value)) return termo;
+    });
+    if (termosProibidos.length > 0) {
+      alertSuccess.style.display = "none";
+      alertDanger.style.display = "block";
+      alertDanger.textContent = [...termosProibidos];
+      console.log(termosProibidos);
+    } else {
+      alertDanger.style.display = "none";
+      alertSuccess.style.display = "block";
+    }
+    if (this.value.length === 0) {
+      alertDanger.style.display = "none";
+      alertSuccess.style.display = "none";
+    }
+    arraysTermos;
+  };
+};
 
-function sendInput(input) {
-    fetch(url) // requisição
-        .then(response => {
-            return response.json()
-        })
-        .then(dados => {
-            const termosProibidos = dados.termo;
-
-            const textoInput = input; 
-            // feedbackDescricao.innerText = textoInput;
-            
-            viewErros.innerText = descricao.value; // enviar o texto do textarea para o para a div ouculta #viewErros
-            // trigger para a função de checagem
-            if (textoInput != "") {
-                let erros = [];
-                
-                //testa se a descrição contém alguma palavra do arquivo json
-                termosProibidos.some(termo => {
-                    const reg = new RegExp(termo, 'i');
-                    if (reg.test(textoInput)) {
-                        erros.push(termo);
-                        viewErros.innerHTML = viewErros.innerHTML.replace(termo, `<span  class="palavras-proibidas">${termo}</span>`); 
-                        updateViewErros(viewErros.innerHTML); /* transferindo o conteúdo da descrição para view de erros*/
-
-                    };
-                });
-
-                //caso não tenha erro
-                if (erros.length === 0) {
-                    feedbackDescricao.innerText = 'Tudo Certo!';
-                    feedbackDescricao.classList.add('allrigth');
-                }
-                else {  // caso tenha erro
-                    feedbackDescricao.classList.remove('allrigth');
-                    feedbackDescricao.classList.add('erro');
-
-                    feedbackDescricao.innerText = `palavras proibidas: \n${erros.join(' \n')}`;
-
-                }
-            } else { //reset
-                limpar();
-            }
-
-        })
-        .catch((e) => { 
-            throw Error(e)
-        })
-
-}
-
-
-btnLimpar.addEventListener('click', () => {
-    limpar();
-    feedbackDescricao.innerText = '';
-    descricao.value = '';
-    viewErros.innerText = ""
-});
-
-btnVer.addEventListener('click', () => {
-    descricao.classList.toggle('estah-visivel');
-    viewErros.classList.toggle('estah-visivel');
-
-});
-
-const limpar = () => {
-    feedbackDescricao.classList.remove('allrigth');
-    feedbackDescricao.classList.remove('erro');
-    feedbackDescricao.innerText = '';
-}
-
-function updateViewErros(descricaoInnerHTML) { 
-    viewErros.innerHTML = descricaoInnerHTML;
-}
-
-
-
+verificaInput();
