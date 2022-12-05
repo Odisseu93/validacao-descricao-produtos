@@ -1,0 +1,7 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.dropdown-menu {
+  --bs-dropdown-item-padding-x: 0.5rem;
+  --bs-dropdown-padding-x: 0;
+  --bs-dropdown-min-width: 0rem;
+}
