@@ -63,13 +63,14 @@
     <!--  -->
     <!-- container -->
     <main class="container-fluid mw-100  my-4 " style="height: 76vh" id="container">
-        <section class="shadow-sm p-3 mb-5 bg-body rounded">
-            <form class="form-floating">
+        <section class="shadow-sm p-3 mb-5 rounded" container-textarea>
+            <form class="form-floating bg-body" form-textarea>
                 <!-- textarea -->
                 <textarea class="form-control my-1" style="height: 50vh" placeholder="Leave a comment here"
                     id="floatingTextarea2" style="height: 100px" form></textarea>
                 <label for="floatingTextarea2">Descrição</label>
-                <button type="button" class="btn btn-light  " data-bs-toggle="modal" data-bs-target="#segundaTela">
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#segundaTela"
+                    btn-localizar-erros>
                     Localizar os erros</button>
             </form>
         </section>
@@ -101,7 +102,7 @@
             ...
         </div>
     </main>
-    <footer class="card-footer text-muted text-center bg-light  p-4 shadow-lg">Desenvolvido por <a
+    <footer class=" card-footer text-muted text-center bg-light  p-4 shadow-lg">Desenvolvido por <a
             href="https://github.com/Odisseu93" class="link-info text-decoration-none" target="_blank">Ulisses
             Silvério</a>.
     </footer>
