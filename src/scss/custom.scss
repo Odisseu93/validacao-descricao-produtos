@@ -1,7 +1,30 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 .dropdown-menu {
   --bs-dropdown-item-padding-x: 0.5rem;
   --bs-dropdown-padding-x: 0;
   --bs-dropdown-min-width: 0rem;
+  // background: $secondary;
+}
+
+.dark-mode {
+  background: $gray-800;
+}
+
+[btn-localizar-erros]:hover {
+  background: $yellow-600;
+}
+
+.container-textarea-dark {
+  background: #000;
+}
+
+.textareaCustom-dark {
+  background: $gray-600;
+  color: #fff;
+}
+
+.textareaCustom-dark:focus {
+  background: $gray-500;
+  color: #000;
 }

@@ -10775,4 +10775,26 @@ textarea.form-control-lg {
   --bs-dropdown-min-width: 0rem;
 }
 
+.dark-mode {
+  background: #343a40;
+}
+
+[btn-localizar-erros]:hover {
+  background: #cc9a06;
+}
+
+.container-textarea-dark {
+  background: #000;
+}
+
+.textareaCustom-dark {
+  background: #6c757d;
+  color: #fff;
+}
+
+.textareaCustom-dark:focus {
+  background: #adb5bd;
+  color: #000;
+}
+
 /*# sourceMappingURL=style.css.map */
