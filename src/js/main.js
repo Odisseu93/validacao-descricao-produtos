@@ -2,6 +2,7 @@ const descricao = document.querySelector("[form]");
 const modalBody = document.querySelector("[modal-body]");
 const alertSuccess = document.querySelector("[alert-success]");
 const alertDanger = document.querySelector("[alert-danger]");
+const btnCopiar = document.querySelector("[btn-copiar]");
 const url = "./termos-proibidos.json";
 
 alertSuccess.style.display = "none";
@@ -109,3 +110,16 @@ selecionar("[dark]").onclick = () => {
   console.log("turn off the light, please!");
   darkMode();
 };
+
+
+btnCopiar.onclick = () => {
+  navigator.clipboard.writeText(descricao.value);
+  navigator.clipboard
+    .readText()
+    .then(() => {
+      document.querySelector(".btn-copiar-alert").classList.toggle("d-none");
+      setTimeout(() => {
+        document.querySelector(".btn-copiar-alert").classList.toggle("d-none");
+      }, 3000)
+    });
+}
