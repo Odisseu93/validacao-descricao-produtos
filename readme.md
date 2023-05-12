@@ -1,9 +1,31 @@
 
-
 <div align="center">
 
 # Validador de Descrições de Anúncios
 
+<div>
+
+![image](https://github.com/Odisseu93/validacao-descricao-produtos/assets/76600539/fded369c-e9f4-4892-b11a-cf7cd8905f3d)
+
+</div>
+<details>
+  <summary>mais screenshots</summary>
+
+
+ **Dakmode**
+![image](https://github.com/Odisseu93/validacao-descricao-produtos/assets/76600539/430d1173-2feb-4944-b7a8-45ac95875ed4)
+
+
+ **mobile light**
+
+![mobile-light](https://github.com/Odisseu93/validacao-descricao-produtos/assets/76600539/3f1db266-09fd-485e-a30d-af847e6af53c)
+
+ **mobile dark**
+
+![mobile-dark](https://github.com/Odisseu93/validacao-descricao-produtos/assets/76600539/67c07ad0-5d4c-4b39-aa27-798c54c28598)
+
+
+</details>
 
 </div>
 
